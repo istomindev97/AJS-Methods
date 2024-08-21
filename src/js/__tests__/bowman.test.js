@@ -2,13 +2,16 @@ import Bowman from '../bowman';
 
 test('should create a Bowman character with correct properties', () => {
     const bowman = new Bowman('Legolas');
+    const expectedBowman = {
+        name: 'Legolas',
+        type: 'Bowman',
+        health: 100,
+        level: 1,
+        attack: 25,
+        defence: 25
+    }
 
-    expect(bowman.name).toBe('Legolas');
-    expect(bowman.type).toBe('Bowman');
-    expect(bowman.health).toBe(100);
-    expect(bowman.level).toBe(1);
-    expect(bowman.attack).toBe(25);
-    expect(bowman.defence).toBe(25);
+    expect(bowman).toEqual(expectedBowman);
   });
 
   test('should throw an error if name is not a string', () => {

@@ -1,15 +1,18 @@
 import Zombie from '../zombie';
 
 test('should create a Zombie character with correct properties', () => {
-    const zombie = new Zombie('Walker');
 
-    expect(zombie.name).toBe('Walker');
-    expect(zombie.type).toBe('Zombie');
-    expect(zombie.health).toBe(100);
-    expect(zombie.level).toBe(1);
-    expect(zombie.attack).toBe(40);
-    expect(zombie.defence).toBe(10);
-  });
+  const character = new Zombie('Walker');
+  const expected = {
+    attack : 40,
+    defence : 10,
+    health: 100, 
+    level: 1,
+    name: 'Walker',
+    type: 'Zombie',
+  }
+
+  expect(character).toEqual(expected)});
 
   test('should throw an error if name is not a string', () => {
     expect(() => new Zombie(123)).toThrow('поле name не соответствует заданным правилам');

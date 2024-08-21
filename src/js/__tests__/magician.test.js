@@ -1,15 +1,19 @@
 import Magician from '../magician';
 
 test('should create a Magician character with correct properties', () => {
-    const magician = new Magician('Merlin');
 
-    expect(magician.name).toBe('Merlin');
-    expect(magician.type).toBe('Magician');
-    expect(magician.health).toBe(100);
-    expect(magician.level).toBe(1);
-    expect(magician.attack).toBe(10);
-    expect(magician.defence).toBe(40);
-  });
+  const character = new Magician('Merlin');
+  const expected = {
+    attack : 10,
+    defence : 40,
+    health: 100, 
+    level: 1,
+    name: 'Merlin',
+    type: 'Magician',
+  }
+
+expect(character).toEqual(expected)
+});
 
   test('should throw an error if name is not a string', () => {
     expect(() => new Magician(123)).toThrow('поле name не соответствует заданным правилам');

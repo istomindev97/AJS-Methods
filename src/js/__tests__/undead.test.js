@@ -1,15 +1,18 @@
 import Undead from '../undead';
 
 test('should create an Undead character with correct properties', () => {
-    const undead = new Undead('Zombie');
 
-    expect(undead.name).toBe('Zombie');
-    expect(undead.type).toBe('Undead');
-    expect(undead.health).toBe(100);
-    expect(undead.level).toBe(1);
-    expect(undead.attack).toBe(25);
-    expect(undead.defence).toBe(25);
-  });
+  const character = new Undead('Zombie');
+  const expected = {
+    attack : 25,
+    defence : 25,
+    health: 100, 
+    level: 1,
+    name: 'Zombie',
+    type: 'Undead',
+  }
+
+  expect(character).toEqual(expected)});
 
   test('should throw an error if name is not a string', () => {
     expect(() => new Undead(123)).toThrow('поле name не соответствует заданным правилам');

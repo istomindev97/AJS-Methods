@@ -1,14 +1,18 @@
 import Daemon from '../daemon';
 
 test('should create a Daemon character with correct properties', () => {
-    const daemon = new Daemon('Inferno');
-
-    expect(daemon.name).toBe('Inferno');
-    expect(daemon.type).toBe('Daemon');
-    expect(daemon.health).toBe(100);
-    expect(daemon.level).toBe(1);
-    expect(daemon.attack).toBe(10);
-    expect(daemon.defence).toBe(40);
+  
+    const character = new Daemon('Inferno');
+    const expected = {
+      attack : 10,
+      defence : 40,
+      health: 100, 
+      level: 1,
+      name: 'Inferno',
+      type: 'Daemon',
+    }
+  
+  expect(character).toEqual(expected)
   });
 
   test('should throw an error if name is not a string', () => {

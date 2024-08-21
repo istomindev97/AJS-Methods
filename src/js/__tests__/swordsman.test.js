@@ -1,24 +1,28 @@
-import Magician from '../magician';
+import Swordsman from '../swordsman';
 
-test('should create a Magician character with correct properties', () => {
-    const magician = new Magician('Merlin');
+test('should create a Swordsman character with correct properties', () => {
 
-    expect(magician.name).toBe('Merlin');
-    expect(magician.type).toBe('Magician');
-    expect(magician.health).toBe(100);
-    expect(magician.level).toBe(1);
-    expect(magician.attack).toBe(10);
-    expect(magician.defence).toBe(40);
-  });
+  const character = new Swordsman('Merlin');
+  const expected = {
+    attack : 40,
+    defence : 10,
+    health: 100, 
+    level: 1,
+    name: 'Merlin',
+    type: 'Swordsman',
+  }
+
+expect(character).toEqual(expected)
+});
 
   test('should throw an error if name is not a string', () => {
-    expect(() => new Magician(123)).toThrow('поле name не соответствует заданным правилам');
+    expect(() => new Swordsman(123)).toThrow('поле name не соответствует заданным правилам');
   });
 
   test('should throw an error if name is less than 2 characters', () => {
-    expect(() => new Magician('M')).toThrow('поле name не соответствует заданным правилам');
+    expect(() => new Swordsman('M')).toThrow('поле name не соответствует заданным правилам');
   });
 
   test('should throw an error if name is more than 10 characters', () => {
-    expect(() => new Magician('SuperLongName')).toThrow('поле name не соответствует заданным правилам');
+    expect(() => new Swordsman('SuperLongName')).toThrow('поле name не соответствует заданным правилам');
   });
